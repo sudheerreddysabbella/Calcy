@@ -4,10 +4,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <title>Calcy by Sudheer Reddy</title>
+    <link rel="stylesheet" href="calcy.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+  </head>
 <body>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio nostrum et ea tempora minima id itaque incidunt eligendi expedita nemo quisquam, ut perferendis iste commodi, nobis est quas ullam. Consectetur!
-    </p>
+      <h1>Calcy by Sudheer Reddy</h1>
+      <p>Hello Geeks<br> This is my output, I tried my best.</p>
+      <div class="container">
+        <div class="calculator">
+            <input type="text" placeholder="0" id="output-screen">
+
+            <button onclick="Clear()">C</button>
+            <button onclick="display('%')">%</button>
+            <button onclick="del()"><i class="material-icons" style="font-size:22px; margin: 2px 2px 2px 0px; color:grey">backspace</i></button>
+            <button onclick="display('/')" style="font-size:32px;">&#247;</button>
+            
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('*')" style="font-size:32px;">&#215;</button>
+            
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('-')" style="font-size: 36px;padding-bottom: 7px;">-</button>
+            
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="display('+')" style="font-size: 28px;">+</button>
+            
+            <button onclick="display('00')">00</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="display('.')" style="font-size: 36px; padding-bottom: 6px;">.</button>
+            <button onclick="Calculate()" clas="equal" style="font-size: 24px;">=</button>            
+        </div>
+      </div>
+
+
+      <script>
+        let outputScreen = document.getElementById("output-screen");
+
+        function display(num){
+          outputScreen.value += num;
+        }
+        function Calculate(){
+          try{
+            outputScreen.value = eval(outputScreen.value);
+          }
+          catch(err)
+          {
+            outputScreen.value = "Invalid"
+          }
+        }
+        function Clear(){
+          outputScreen.value = "";
+        }
+        function del(){
+          outputScreen.value = outputScreen.value.slice(0, -1);
+        }
+      </script>
 </body>
 </html>
